@@ -1,0 +1,74 @@
+.favoritePageStyle{
+  margin: 5% 10% 15% 10%;
+
+}
+
+.favoritePageStyle h1{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.favoritePageStyle h1::before{
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 5px;
+  bottom: -20px;
+  opacity: 0;
+  background-color: #353535;
+  animation: growC .5s forwards;
+  animation-delay: 1.2s;
+}
+
+
+
+
+table {
+  font-family: 'Source Sans Pro', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.imgWithText{
+  text-align: justify;
+}
+
+
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-size: 18px;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td img{
+  width: 200px;
+  margin-right: 20%;
+  
+}
+
+td img:hover{
+  width: 50%;
+  transition: width 0.5s ease;
+}
+
+
+@keyframes growC{
+  0%{
+      width: 0;
+  }
+  100%{
+      opacity: 1;
+      width: 300px;
+  }
+}

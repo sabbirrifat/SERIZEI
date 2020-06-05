@@ -1,0 +1,80 @@
+
+.gridStyle{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gridStyle h1{
+  margin-top: 40px;;
+    margin-bottom: 80px;
+    position: relative;
+    font-size: 42px;
+}
+
+.gridStyle h1::before{
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 5px;
+  bottom: -20px;
+  opacity: 0;
+  background-color: #353535;
+  animation: growC .5s forwards;
+  animation-delay: 1.2s;
+}
+
+
+.gridContentStyle{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-gap: 40px;
+    position: relative;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .gridContentStyle{
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+    
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .gridStyle{
+        font-size: 22px;
+    }
+
+    .gridContentStyle{
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+   
+  }
+
+  @media screen and (max-width: 600px) {
+    .gridContentStyle{
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+    
+  }
+
+  @media screen and (max-width: 375px) {
+    .gridContentStyle{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+  }
+
+
+  @keyframes growC{
+    0%{
+        width: 0;
+    }
+    100%{
+        opacity: 1;
+        width: 300px;
+    }
+}
+

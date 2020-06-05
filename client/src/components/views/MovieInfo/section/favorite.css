@@ -1,0 +1,39 @@
+.favButton{
+    padding: 10px 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid #ffffff;
+}
+
+.fa-heart{
+    color: #fc0335;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.favButton:hover{
+    color: red;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.fa-trash{
+ font-size: 20px;
+ margin-left: 5px;
+ margin-right: 10px;
+ color: #fc0335;
+}
+
+.removeFav{
+    color: #fc0335;
+}
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.movieThumb{
+  -webkit-box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.55);
+  -moz-box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.55);
+  box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.55);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.movieThumb img{
+    width: 100%;
+    /* min-height: 340px; */
+    transition: all 0.3s;
+    object-fit: cover;
+    border-radius: 20px;
+    animation: animateMovieThumb 0.5s;
+}
+
+.movieThumb:hover{
+   transform: scale(1.2);
+   transition: transform 0.5s ease;
+}
+
+.clickable {
+    cursor: pointer;
+  }
+
+
+@keyframes animateMovieThumb {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

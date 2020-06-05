@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+:root{
+    --main-black: #1E202B;
+    --main-blue: #08AEEA;
+    --main-green: #2AF598;
+    --main-gradient: linear-gradient(to right, var(--main-blue), var(--main-green));
+
+}
+
+body{
+    overflow-x: hidden;
+    background-color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+.app {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input.error {
+  border-color: red;
+}
+
+
+.input-feedback {
+  color: red;
+  height: 5px;
+  margin-top: -12px;
+}

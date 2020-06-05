@@ -1,0 +1,42 @@
+.navbar-brand{
+    color: white !important;
+    font-size: 28px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.dashboardNav{
+    background: #1c1c1c;
+}
+
+.navbar li{
+    margin-right: 3em;
+    opacity: 0;
+    animation: simpleOpacity 0.5s forwards;
+    animation-delay: 0.3s;
+    
+}
+
+.navbar li a{
+    float: right;
+    font-weight: bold;
+    font-size: 1em;
+    color: white !important;
+}
+
+.navbar li a:hover{
+    color: #808080 !important;
+    transition: color 0.3s;
+}
+
+.navbar ul li:last-child{
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.navbar ul li:last-child:hover{
+    background-color: white;
+    color: #808080;
+}
