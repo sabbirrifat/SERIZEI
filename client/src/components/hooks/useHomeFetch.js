@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { POPULAR_BASE_URL } from '../../config';
 
 export const useHomeFetch = searchTerm => {
-  const [state, setState] = useState({ movies: [] });
+  const [state, setState] = useState({ series: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const fetchMovies = async endpoint => {
+  const fetchSeries = async endpoint => {
     setError(false);
     setLoading(true);
 
@@ -16,9 +16,9 @@ export const useHomeFetch = searchTerm => {
       const result = await (await fetch(endpoint)).json();
       setState(prev => ({
         ...prev,
-        movies:
+        series:
           isLoadMore !== -1
-            ? [...prev.movies, ...result.results]
+            ? [...prev.series, ...result.results]
             : [...result.results],
         heroImage: prev.heroImage || result.results[0],
         currentPage: result.page,
@@ -31,13 +31,13 @@ export const useHomeFetch = searchTerm => {
     setLoading(false);
   };
 
-  // Fetch popular movies initially on mount
+  // Fetch popular series initially on mount
   useEffect(() => {
     if (sessionStorage.homeState) {
       setState(JSON.parse(sessionStorage.homeState));
       setLoading(false);
     } else {
-      fetchMovies(POPULAR_BASE_URL);
+      fetchSeries(POPULAR_BASE_URL);
     }
   }, []);
 
@@ -47,5 +47,5 @@ export const useHomeFetch = searchTerm => {
     }
   }, [searchTerm, state]);
 
-  return [{ state, loading, error }, fetchMovies];
+  return [{ state, loading, error }, fetchSeries];
 };

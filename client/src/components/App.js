@@ -8,7 +8,7 @@ import RegisterPage from "./views/RegisterPage/RegisterPage";
 import Home from './views/Home/Home';
 
 import Dashboard from './Dashboard';
-import Movie from './Movie';
+import Series from './Series';
 import NotFound from './NotFound';
 
 import FavoritePage from "./views/FavoritePage/FavoritePage";
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/dashboard" component={Auth(Dashboard, true)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/tv/:movieId" component={Auth(Movie, true)} />
+          <Route exact path="/tv/:seriesId" component={Auth(Series, true)} />
           <Route exact path="/favorite" component={Auth(FavoritePage, true)} />
           <Route component={NotFound} />
         </Switch>

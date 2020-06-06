@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { API_URL, API_KEY } from '../../config';
 
-export const useMovieFetch = movieId => {
+export const useSeriesFetch = seriesId => {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -11,10 +11,10 @@ export const useMovieFetch = movieId => {
     setLoading(true);
 
     try {
-      const endpoint = `${API_URL}tv/${movieId}?api_key=${API_KEY}`;
+      const endpoint = `${API_URL}tv/${seriesId}?api_key=${API_KEY}`;
       const result = await (await fetch(endpoint)).json();
 
-      const creditsEndpoint = `${API_URL}tv/${movieId}/credits?api_key=${API_KEY}`;
+      const creditsEndpoint = `${API_URL}tv/${seriesId}/credits?api_key=${API_KEY}`;
       const creditsResult = await (await fetch(creditsEndpoint)).json();
       const directors = creditsResult.crew.filter(
         member => member.job === 'Director'
@@ -30,7 +30,7 @@ export const useMovieFetch = movieId => {
       setError(true);
     }
     setLoading(false);
-  }, [movieId])
+  }, [seriesId])
 
   useEffect(() => {
     fetchData();

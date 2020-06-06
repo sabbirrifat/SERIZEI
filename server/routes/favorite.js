@@ -13,7 +13,7 @@ const { auth } = require("../middleware/auth");
 
 router.post("/favoriteNumber", (req, res) => {
 
-    Favorite.find({ "movieId": req.body.movieId })
+    Favorite.find({ "seriesId": req.body.seriesId })
         .exec((err, subscribe) => {
             if (err) return res.status(400).send(err)
 
@@ -26,7 +26,7 @@ router.post("/favoriteNumber", (req, res) => {
 
 router.post("/favorited", (req, res) => {
 
-    Favorite.find({ "movieId": req.body.movieId, "userFrom": req.body.userFrom })
+    Favorite.find({ "seriesId": req.body.seriesId, "userFrom": req.body.userFrom })
         .exec((err, subscribe) => {
             if (err) return res.status(400).send(err)
 
@@ -44,8 +44,7 @@ router.post("/favorited", (req, res) => {
 
 router.post("/addToFavorite", (req, res) => {
 
-    console.log(req.body)
-
+    
     const favorite = new Favorite(req.body);
 
     favorite.save((err, doc) => {
@@ -59,7 +58,7 @@ router.post("/addToFavorite", (req, res) => {
 router.post("/removeFromFavorite", (req, res) => {
 
 
-    Favorite.findOneAndDelete({ movieId: req.body.movieId, userFrom: req.body.userFrom })
+    Favorite.findOneAndDelete({ seriesId: req.body.seriesId, userFrom: req.body.userFrom })
         .exec((err, doc) => {
             if (err) return res.status(400).json({ success: false, err });
             res.status(200).json({ success: true, doc })
@@ -67,7 +66,7 @@ router.post("/removeFromFavorite", (req, res) => {
 });
 
 
-router.post("/getFavoredMovie", (req, res) => {
+router.post("/getFavoredSeries", (req, res) => {
 
     //Need to find all of the Users that I am subscribing to From Subscriber Collection 
     Favorite.find({ 'userFrom': req.body.userFrom })

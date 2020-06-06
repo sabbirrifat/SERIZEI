@@ -6,18 +6,19 @@ const favoriteSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    movieId : {
+    seriesId : {
         type: String
     },
-    movieTitle: {
+    seriesTitle: {
         type: String
     },
-    moviePost: {
+    seriesPost: {
         type: String
     },
-    movieRunTime : {
+    seriesRunTime : {
         type: String
     }
+
 
 }, { timestamps: true })
 

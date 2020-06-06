@@ -6,7 +6,7 @@ import Header from "./views/Header/Header";
 import HeroImage from "./views/HeroImage/HeroImage";
 import SearchBar from "./views/SearchBar/SearchBar";
 import Grid from "./views/Grid/Grid";
-import MovieThumb from "./views/MovieThumb/MovieThumb";
+import SeriesThumb from "./views/SeriesThumb/SeriesThumb";
 import LoadMoreBtn from "./views/LoadMore/LoadMoreBtn";
 import Spinner from "./views/Spinner/Spinner";
 import Footer from "./views/Footer/Footer";
@@ -30,21 +30,21 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [
     {
-      state: { movies, currentPage, totalPages, heroImage },
+      state: { series, currentPage, totalPages, heroImage },
       loading,
       error,
     },
-    fetchMovies,
+    fetchSeries,
   ] = useHomeFetch(searchTerm);
 
-  const searchMovies = (search) => {
+  const searchSeries = (search) => {
     const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
 
     setSearchTerm(search);
-    fetchMovies(endpoint);
+    fetchSeries(endpoint);
   };
 
-  const loadMoreMovies = () => {
+  const loadMoreSeries = () => {
     const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${
       currentPage + 1
     }`;
@@ -52,11 +52,11 @@ const Dashboard = () => {
 
     const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
 
-    fetchMovies(endpoint);
+    fetchSeries(endpoint);
   };
 
   if (error) return <div>Something went wrong ...</div>;
-  if (!movies[0]) return <Spinner />;
+  if (!series[0]) return <Spinner />;
 
   return (
     <>
@@ -69,20 +69,20 @@ const Dashboard = () => {
           text={heroImage.overview}
         />
       )}
-      <SearchBar callback={searchMovies} />
+      <SearchBar callback={searchSeries} />
 
       <Grid header={searchTerm ? "Search Result" : "Popular TV SHOW"}>
-        {movies.map((movie) => (
-          <MovieThumb
-            key={movie.id}
+        {series.map((serie) => (
+          <SeriesThumb
+            key={serie.id}
             clickable
             image={
-              movie.poster_path
-                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+              serie.poster_path
+                ? IMAGE_BASE_URL + POSTER_SIZE + serie.poster_path
                 : NoImage
             }
-            movieId={movie.id}
-            movieName={movie.name}
+            seriesId={serie.id}
+            seriesName={serie.name}
           />
         ))}
 
@@ -90,7 +90,7 @@ const Dashboard = () => {
 
       {loading && <Spinner />}
       {currentPage < totalPages && !loading && (
-        <LoadMoreBtn text="Load More" callback={loadMoreMovies} />
+        <LoadMoreBtn text="Load More" callback={loadMoreSeries} />
       )}
 
       <Footer />

@@ -7,20 +7,20 @@ import './favorite.css'
 function Favorite(props) {
     const user = useSelector(state => state.user)
 
-    const movieId = props.movieId
+    const seriesId = props.seriesId
     const userFrom = props.userFrom
-    const movieTitle = props.movieInfo.name
-    const moviePost = props.movieInfo.backdrop_path
-    const totalSeasons = props.movieInfo.number_of_seasons
+    const seriesTitle = props.seriesInfo.name
+    const seriesPost = props.seriesInfo.backdrop_path
+    const totalSeasons = props.seriesInfo.number_of_seasons
 
     const [FavoriteNumber, setFavoriteNumber] = useState(0)
     const [Favorited, setFavorited] = useState(false)
     const variables = {
-        movieId: movieId,
+        seriesId: seriesId,
         userFrom: userFrom,
-        movieTitle: movieTitle,
-        moviePost: moviePost,
-        movieRunTime: totalSeasons
+        seriesTitle: seriesTitle,
+        seriesPost: seriesPost,
+        seriesRunTime: totalSeasons
     }
 
     const onClickFavorite = () => {

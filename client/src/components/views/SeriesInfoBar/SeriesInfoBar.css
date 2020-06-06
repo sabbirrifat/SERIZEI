@@ -1,4 +1,4 @@
-.movieInfoBar{
+.seriesInfoBar{
     display: flex;
   align-items: center;
   width: 100%;
@@ -11,7 +11,7 @@
   font-size: 20px;
 }
 
-.movieinfobar-content {
+.seriesinfobar-content {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
@@ -19,14 +19,14 @@
 }
 
 
-.movieinfobar-content-col {
+.seriesinfobar-content-col {
     float: left;
     width: 33.33%;
     box-sizing: border-box;
     padding: 10px 20px 0 0;
   }
 
-  .movieinfobar-info {
+  .seriesinfobar-info {
     padding: 5px 0 0 10px;
     float: left;
   }
@@ -54,7 +54,7 @@
   }
 
   @media screen and (max-width: 425px) {
-    .movieInfoBar{
+    .seriesInfoBar{
         font-size: 14px;
     }
     

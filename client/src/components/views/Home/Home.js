@@ -47,13 +47,13 @@ function Home() {
                   <div className="whiteBG" />
                 </div>
                 <p className="subText">
-                  Thousands of movies with <b>no rental fees</b>. Our <br />monthly
+                  Thousands of Series with <b>no rental fees</b>. Our <br />monthly
                   plan gives you unlimited access to our<br />
-                  movie library
+                  series library
                 </p>
                 <p className="subText">
                   <b>Forget the theaters</b>! Exclusive access <br />
-                  to movies in theaters on release data
+                  to series in theaters on release data
                 </p>
               </div>
               <Slide right>

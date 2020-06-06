@@ -15,11 +15,11 @@ function FavoritePage() {
   let variable = { userFrom: localStorage.getItem("userId") };
 
   useEffect(() => {
-    fetchFavoredMovie();
+    fetchFavoredSeries();
   }, []);
 
-  const fetchFavoredMovie = () => {
-    axios.post("/api/favorite/getFavoredMovie", variable).then((response) => {
+  const fetchFavoredSeries = () => {
+    axios.post("/api/favorite/getFavoredSeries", variable).then((response) => {
       if (response.data.success) {
         console.log(response.data.favorites);
         setFavorites(response.data.favorites);
@@ -30,9 +30,9 @@ function FavoritePage() {
     });
   };
 
-  const onClickDelete = (movieId, userFrom) => {
+  const onClickDelete = (seriesId, userFrom) => {
     const variables = {
-      movieId: movieId,
+      seriesId: seriesId,
       userFrom: userFrom,
     };
 
@@ -40,7 +40,7 @@ function FavoritePage() {
       .post("/api/favorite/removeFromFavorite", variables)
       .then((response) => {
         if (response.data.success) {
-          fetchFavoredMovie();
+          fetchFavoredSeries();
         } else {
           alert("Failed to Remove From Favorite");
         }
@@ -52,19 +52,19 @@ function FavoritePage() {
       <tr key={index}>
         <td className="imgWithText">
           {" "}
-          {favorite.moviePost ? (
-            <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${favorite.moviePost}`} alt=" " />
+          {favorite.seriesPost ? (
+            <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${favorite.seriesPost}`} alt=" " />
           ) : (
             "no image"
           )}
-          {favorite.movieTitle}
+          {favorite.seriesTitle}
         </td>
 
-        <td> {favorite.movieRunTime} </td>
+        <td> {favorite.seriesRunTime} </td>
         <td>
           <button
             class="favButton"
-            onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}
+            onClick={() => onClickDelete(favorite.seriesId, favorite.userFrom)}
           >
             {" "}
             <i class="fa fa-trash" aria-hidden="true"></i>

@@ -2,8 +2,8 @@ import React from "react";
 
 // Components
 
-import MovieInfo from "./views/MovieInfo/MovieInfo";
-import MovieInfoBar from "./views/MovieInfoBar/MovieInfoBar";
+import SeriesInfo from "./views/SeriesInfo/SeriesInfo";
+import SeriesInfoBar from "./views/SeriesInfoBar/SeriesInfoBar";
 import Actor from "./views/Actor/Actor";
 import Grid from "./views/Grid/Grid";
 import Spinner from "./views/Spinner/Spinner";
@@ -13,13 +13,11 @@ import Footer from "./views/Footer/Footer";
 //Custom Hook
 
 
-import { useMovieFetch } from "./hooks/useMovieFetch";
+import { useSeriesFetch } from "./hooks/useSeriesFetch";
 
-const Movie = (props) => {
-  const movieId = props.match.params.movieId;
-  const [movie, loading, error] = useMovieFetch(movieId);
-  console.log(movieId);
-  console.log(error);
+const Series = (props) => {
+  const seriesId = props.match.params.seriesId;
+  const [series, loading, error] = useSeriesFetch(seriesId);
   if (error) return <div>Something went wrong ...</div>;
   if (loading) return <Spinner />;
 
@@ -27,16 +25,16 @@ const Movie = (props) => {
     <>
       <Header mode={true} />
 
-      <MovieInfo movie={movie} />
+      <SeriesInfo series={series} />
       
-      <MovieInfoBar
-        time={movie.number_of_seasons}
-        budget={movie.first_air_date}
-        revenue={movie.status}
+      <SeriesInfoBar
+        time={series.number_of_seasons}
+        budget={series.first_air_date}
+        revenue={series.status}
       />
 
       <Grid header="Actors">
-        {movie.actors.map((actor) => (
+        {series.actors.map((actor) => (
           <Actor key={actor.credit_id} actor={actor} />
         ))}
       </Grid>
@@ -47,4 +45,4 @@ const Movie = (props) => {
   );
 };
 
-export default Movie;
+export default Series;

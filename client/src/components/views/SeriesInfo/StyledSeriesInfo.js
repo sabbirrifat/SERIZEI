@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../../config';
 
 
-export const StyledMovieInfo = styled.div`
+export const StyledSeriesInfo = styled.div`
   background: ${props =>
     props.backdrop
       ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.backdrop}')`
@@ -12,9 +12,9 @@ export const StyledMovieInfo = styled.div`
   width: 100%;
   padding: 40px 20px;
   box-sizing: border-box;
-  animation: animateMovieinfo 1s;
+  animation: animateseriesinfo 1s;
 
-  .movieinfo-content {
+  .seriesinfo-content {
     max-width: 1280px;
     min-height: 450px;
     margin: 0 auto;
@@ -23,7 +23,7 @@ export const StyledMovieInfo = styled.div`
     position: relative;
   }
 
-  .movieinfo-thumb {
+  .seriesinfo-thumb {
     width: 300px;
     float: left;
 
@@ -32,7 +32,7 @@ export const StyledMovieInfo = styled.div`
     }
   }
 
-  .movieinfo-text {
+  .seriesinfo-text {
     font-family: Arial, Helvetica, sans-serif;
     padding: 40px;
     color: #fff;
@@ -99,7 +99,7 @@ export const StyledMovieInfo = styled.div`
     height: auto;
   }
 
-  @keyframes animateMovieinfo {
+  @keyframes animateseriesinfo {
     from {
       opacity: 0;
     }

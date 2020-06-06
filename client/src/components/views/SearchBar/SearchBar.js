@@ -24,7 +24,7 @@ const SearchBar = ({ callback }) => {
         <FontAwesome className="fa-search" name="search" size="2x" />
         <input
           type="text"
-          placeholder="Search Movie"
+          placeholder="Search TV SHOW..."
           onChange={doSearch}
           value={state}
         />
