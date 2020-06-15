@@ -1,3 +1,3 @@
-# SeriesPai
+# SERIZEI
 
-# Find The Latest Series You need to watch
+# Find The Latest TV SHOW You want to watch
